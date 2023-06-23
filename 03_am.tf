@@ -103,7 +103,7 @@ resource "azurerm_linux_virtual_machine" "am1" {
   size                = "Standard_B2ms"
 
   admin_username                  = "wabadmin"
-  admin_password                  = var.wabadmin_password
+  admin_password                  = random_password.AM.result
   disable_password_authentication = false
   custom_data                     = data.cloudinit_config.cloudinit.rendered
 
@@ -149,7 +149,7 @@ resource "azurerm_linux_virtual_machine" "am2" {
   size                = "Standard_B2ms"
 
   admin_username                  = "wabadmin"
-  admin_password                  = var.wabadmin_password
+  admin_password                  = random_password.AM.result
   disable_password_authentication = false
   custom_data                     = data.cloudinit_config.cloudinit.rendered
 
